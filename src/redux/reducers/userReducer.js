@@ -1,7 +1,8 @@
-import { USER_UPDATE, USER_UPDATE_FAIL } from '../actions/type';
+import { USER_UPDATE, USER_UPDATE_FAIL,CHANGING_PASSWORD_FAIL,CHANGING_PASSWORD_ONGOING,CHANGING_PASSWORD_SUCCESS } from '../actions/type';
 
 const initialState = {
   user: JSON.parse(localStorage.getItem('user')),
+  passwordChangeStatus: null
 }
 
 export default function (state = initialState, action) {
@@ -15,6 +16,21 @@ export default function (state = initialState, action) {
       return {
         ...state,
       }
+    case CHANGING_PASSWORD_SUCCESS: 
+    return{
+      ...state,
+      passwordChangeStatus: "Done"
+    }
+    case CHANGING_PASSWORD_FAIL:
+      return{
+        ...state,
+        passwordChangeStatus: "Fail"
+      }
+    case CHANGING_PASSWORD_ONGOING:
+    return{
+        ...state,
+        passwordChangeStatus: "Ongoing"
+    }
     default:
       return state;
   }
