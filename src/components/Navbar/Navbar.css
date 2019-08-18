@@ -9,6 +9,9 @@
   background-color: inherit !important;
   border: none;
 }
+#navbar .ant-menu-item{
+  border: none;
+}
 #navbar .ant-menu-item:hover{
   border: none;
 }

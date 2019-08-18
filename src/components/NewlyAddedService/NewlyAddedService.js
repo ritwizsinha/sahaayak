@@ -4,7 +4,8 @@ import {connect} from 'react-redux';
 import Tables from '../Tables/Tables';
 class NewlyAddedService extends Component {
   render() {
-    const {services,status} = this.props;
+    let {services,status} = this.props;
+    console.log(services);
 return  (
     <React.Fragment>
         <Tables services={services} status={status} />
